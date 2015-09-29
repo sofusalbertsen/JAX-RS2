@@ -5,6 +5,7 @@
  */
 package dk.cphbusiness.facade;
 
+import dk.cphbusiness.exception.BookNotFoundException;
 import dk.cphbusiness.entity.Book;
 import java.util.Collection;
 import java.util.HashMap;

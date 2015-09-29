@@ -9,7 +9,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dk.cphbusiness.entity.Book;
-import dk.cphbusiness.facade.BookNotFoundException;
+import dk.cphbusiness.exception.BookNotFoundException;
 import dk.cphbusiness.facade.Facade;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;

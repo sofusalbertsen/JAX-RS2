@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.cphbusiness.facade;
+package dk.cphbusiness.exception;
 
 /**
  *
@@ -12,6 +12,7 @@ package dk.cphbusiness.facade;
 public class BookNotFoundException extends Exception {
 
     public BookNotFoundException(String no_book_with_that_ISBN) {
+    super(no_book_with_that_ISBN);
     }
     
 }

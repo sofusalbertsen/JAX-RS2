@@ -29,6 +29,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(dk.cphbusiness.exception.BookNotFoundExceptionMapper.class);
         resources.add(dk.cphbusiness.rest.RestServiceBook.class);
     }
     
