@@ -9,6 +9,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dk.cphbusiness.entity.Book;
+import dk.cphbusiness.facade.BookNotFoundException;
 import dk.cphbusiness.facade.Facade;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -46,14 +47,15 @@ public class RestServiceBook {
 
     @GET
     @Produces("application/json")
-    public String getBooks() {
-       return gson.toJson(Facade.getBooks());
+    public Response getBooks() {
+        return Response.status(Response.Status.OK).entity(gson.toJson(Facade.getBooks())).build();
+//       return gson.toJson(Facade.getBooks());
     }
     
     @POST
     @Consumes("application/json")
     public Response createBook(String book){
-    Facade.createBook(gson.fromJson(book, Book.class));
+//    Facade.createBook(gson.fromJson(book, Book.class));
     return Response.status(Response.Status.CREATED).entity(book).build();
     }
     
@@ -66,9 +68,8 @@ public class RestServiceBook {
     @GET
     @Path("{id}")
     @Produces("application/json")
-    public Response getBook(@PathParam("id") String ISBN){
-        return Response.status(Response.Status.OK).entity(gson.toJson(Facade.getBook(ISBN))).build();
-//        return gson.toJson(Facade.getBook(ISBN));
+    public String getBook(@PathParam("id") String ISBN) throws BookNotFoundException{
+        return gson.toJson(Facade.getBook(ISBN));
     }
     
     

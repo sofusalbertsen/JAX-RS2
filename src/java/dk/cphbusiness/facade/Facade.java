@@ -19,6 +19,7 @@ public class Facade {
     static Map<String, Book> books = new HashMap() {
         {
             put("123456", new Book("123456", "Borte med blæsten", 100f, 15));
+            put("1234",new Book("1234","Sigurd fortæller bibelhistorier",10.3f,10));
         }
     };
 
@@ -27,11 +28,15 @@ public class Facade {
     }
 
     public static Collection<Book> getBooks() {
+    
         return books.values();
     }
 
-    public static Book getBook(String iSBN) {
+    public static Book getBook(String iSBN) throws BookNotFoundException {
+        if(books.containsKey(iSBN))
         return books.get(iSBN);
+        else
+            throw new BookNotFoundException("No book with that ISBN");
     }
 
     public static void deleteBook(String iSBN) {
